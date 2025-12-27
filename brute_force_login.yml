@@ -1,0 +1,21 @@
+title: Brute Force Login Attempt
+id: 87654321-4321-4321-4321-210987654321
+status: experimental
+description: Detects multiple failed login attempts within a short time frame
+author: Threat Hunter
+date: 2023-10-01
+logsource:
+    product: windows
+    service: security
+detection:
+    selection:
+        EventID: 4625
+    timeframe: 10m
+    condition: selection | count() > 5
+fields:
+    - AccountName
+    - IpAddress
+    - LogonType
+falsepositives:
+    - Legitimate user forgetting password
+level: medium

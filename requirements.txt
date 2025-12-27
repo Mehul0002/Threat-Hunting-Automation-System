@@ -1,0 +1,4 @@
+tkinter
+sqlite3
+pyyaml
+reportlab  # for PDF reports
